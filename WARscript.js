@@ -1,5 +1,5 @@
 // For the final project you will be creating an automated version of the classic card game WAR. The entire game should play out instantly without any user input. 
-// Think about how you would build this project and write your plan down. Consider classes such as Card, Deck, and Player and what fields and methods they might each have. You can implement the game however you’d like (i.e. printing to the console, using alert, or some other way). The completed project should, when ran, do the following:
+// Think about how you would build this project and write your plan down. Consider classes such as Card, Deck, and Player and what fields and methods they might each have. You can implement the game however you’d like (i.e. printing to the console, using console.log, or some other way). The completed project should, when ran, do the following:
 // -Deal 26 Cards to two Players from a Deck. ✔️
 // -Iterate through the turns where each Player plays a Card ✔️
 // -The Player who played the higher card is awarded a point ✔️
@@ -7,7 +7,8 @@
 // -After all cards have been played, display the score. ✔️
 // -Write a Unit Test using Mocha and Chai for at least one of the functions you write.
 
-let fullDeck = ['2','3','4','5','6','7','8','9','10', 'J', 'Q', 'K', 'A','2','3','4','5','6','7','8','9','10','J', 'Q', 'K', 'A','2','3','4','5','6','7','8','9','10','J', 'Q', 'K', 'A','2','3','4','5','6','7','8','9','10','J', 'Q', 'K', 'A'];
+let fullDeck = [2,3,4,5,6,7,8,9,10, 'J', 'Q', 'K', 'A',2,3,4,5,6,7,8,9,10,'J', 'Q', 'K', 'A',2,3,4,5,6,7,8,9,10,'J', 'Q', 'K', 'A',2,3,4,5,6,7,8,9,10,'J', 'Q', 'K', 'A'];
+
 
 // class Cards{
 //     constructor(value){
@@ -16,22 +17,21 @@ let fullDeck = ['2','3','4','5','6','7','8','9','10', 'J', 'Q', 'K', 'A','2','3'
 //     }
 // }
 
-// class Deck{
-//     constructor(cards){
-//         this.cards =cards;
-//     }
+class Game{
+    constructor(cards){
+        this.cards =cards;
+    }
     
-//     start(){
-//         alert("🧨Let's go to War🧨!"); 
-//     }
-//     //shuffledDeck(){
-//     fullDeck.sort(function(){
-//          return 0.5 - Math.random()
-//     });
-    
-//     let shuffledDeck = fullDeck.sort(()=> 0.5 - Math.random());
-       
-// }
+    start(){
+        console.log("🧨Let's go to War🧨!");
+        //shuffle cards
+        //pass out cards to players
+        //start turns function 
+    }        
+}
+
+
+console.log("🧨Let's go to War🧨!");
 
 let playerOneCard = [];
 let scoreP1 = 0;
@@ -50,11 +50,11 @@ for(let i = 0; i < 52; i++){
     }
 };
 
-console.log(`
-PLAYER 1 🥇   ${playerOneCard}
+// console.log(`
+// PLAYER 1 🥇   ${playerOneCard}
 
-PLAYER 2 🥈   ${playerTwoCard}
-`);
+// PLAYER 2 🥈   ${playerTwoCard}
+// `);
 
 
 
@@ -90,10 +90,10 @@ let p1Card;
      break;
    case "A": p2Card = 14;
      break;
-   default: p2Card = parseInt(playerTwoCard[i]);
+   default: p2Card = playerTwoCard[i];
  }
  
-    takeTurns(p1Card, p2Card);  
+ takeTurns(p1Card, p2Card);  
 
 };
 
@@ -111,24 +111,44 @@ function takeTurns(p1, p2){
 }
 
 
-//At the end of the game, alert scores
+function winner(p1, p2){
+    if(p1 > p2){
+    return ' PLAYER 1 WINS!'
+    } else if (p1 < p2){
+    return ' PLAYER 2 WINS!'
+    } else{
+        return '   NO WINNER!'
+    };
+}    
+
+
+//At the end of the game, console.log scores
 console.log
 (`
-PLAYER 1 Score🎲:   ${scoreP1}
-PLAYER 2 Score🎲:   ${scoreP2}
+🔥🔥🔥  -GAME OVER-  🔥🔥🔥
+__________________________________ 
+         ${winner(scoreP1, scoreP2)}
+__________________________________                      
+     PLAYER 1 Score 🎲:   ${scoreP1}   
+                                   
+     PLAYER 2 Score 🎲:   ${scoreP2}   
+__________________________________
+
 `);
 
 
-// class Players(){
-//     constructor(player){
-//         this.player = player;
-//     }
-// }
+
+
+class Players(){
+    constructor(player){
+        this.player = player;
+    }
+}
 
 
 
-// let deck = new Deck();
-// deck.start();
+let game = new Game();
+game.start();
 
 
 
