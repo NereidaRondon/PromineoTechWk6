@@ -7,54 +7,40 @@
 // -After all cards have been played, display the score. ✔️
 // -Write a Unit Test using Mocha and Chai for at least one of the functions you write.
 
-let J='J';
-let Q='Q';
-let K='K';
-let A='A';
+let fullDeck = ['2','3','4','5','6','7','8','9','10', 'J', 'Q', 'K', 'A','2','3','4','5','6','7','8','9','10','J', 'Q', 'K', 'A','2','3','4','5','6','7','8','9','10','J', 'Q', 'K', 'A','2','3','4','5','6','7','8','9','10','J', 'Q', 'K', 'A'];
 
-let fullDeck = ['2','3','4','5','6','7','8','9','10',J,Q,K,A,'2','3','4','5','6','7','8','9','10',J,Q,K,A,'2','3','4','5','6','7','8','9','10',J,Q,K,A,'2','3','4','5','6','7','8','9','10',J,Q,K,A];
+// class Cards{
+//     constructor(value){
+//         this.value = value;
 
-//let fullDeck = ['2','3','4','5','6','7','8','9','10','J','Q','K','A','2','3','4','5','6','7','8','9','10','J','Q','K','A','2','3','4','5','6','7','8','9','10','J','Q','K','A','2','3','4','5','6','7','8','9','10','J','Q','K','A'];
+//     }
+// }
 
-//let fullDeck = [2,3,4,5,6,7,8,9,10,J,Q,K,A,2,3,4,5,6,7,8,9,10,J,Q,K,A,2,3,4,5,6,7,8,9,10,J,Q,K,A,2,3,4,5,6,7,8,9,10,J,Q,K,A];
-
-class Cards{
-    constructor(value){
-        this.value = value;
-
-    }
-}
-
-class Deck{
-    constructor(cards){
-        this.cards =cards;
-    }
+// class Deck{
+//     constructor(cards){
+//         this.cards =cards;
+//     }
     
-    start(){
-        alert("🧨Let's go to War🧨!"); 
-    }
-    //shuffledDeck(){
-    fullDeck.sort(function(){
-         return 0.5 - Math.random()
-    });
+//     start(){
+//         alert("🧨Let's go to War🧨!"); 
+//     }
+//     //shuffledDeck(){
+//     fullDeck.sort(function(){
+//          return 0.5 - Math.random()
+//     });
     
-    let shuffledDeck = fullDeck.sort(()=> 0.5 - Math.random());
+//     let shuffledDeck = fullDeck.sort(()=> 0.5 - Math.random());
        
-}
-
-
+// }
 
 let playerOneCard = [];
 let scoreP1 = 0;
 
 let playerTwoCard = [];
 let scoreP2 = 0;
+  
+let shuffledDeck = fullDeck.sort(()=> 0.5 - Math.random());
 
-
-// playerOneCard= shuffledDeck.slice(0,25);
-// playerTwoCard= shuffledDeck.slice(26, -1)
-// alert(`PLAYER 1: ${playerOneCard}`);
-// alert(`PLAYER 2: ${playerTwoCard}`);
 
 for(let i = 0; i < 52; i++){
     if(i%2 ===0){
@@ -64,63 +50,85 @@ for(let i = 0; i < 52; i++){
     }
 };
 
-//All of the cards for each player
-alert(`
-PLAYER 1 🥇     ${playerOneCard}
+console.log(`
+PLAYER 1 🥇   ${playerOneCard}
 
-PLAYER 2 🥈     ${playerTwoCard}
+PLAYER 2 🥈   ${playerTwoCard}
 `);
 
-//function compares the card values
-function takeTurns(p1, p2){
-    J = '11';
-    Q = '12';
-    K = '13';
-    A = '14';
-    if(p1 > p2){
-    scoreP1 += 1;
-    }else if (p1 < p2) {
-    scoreP2 += 1;
-    }else {
-        alert('Tied! No points awarded...');
-    }
-}  
 
-//each players card per turn
-for(let i = 0; i<3;i++){
-    alert (`
-    PLAYER 1 Card ♠️♦️♣️♥️:     ${playerOneCard[i]}           
-    
-    PLAYER 2 Card ♠️♦️♣️♥️:     ${playerTwoCard[i]}
-    `);
-    
-    takeTurns(playerOneCard[i], playerTwoCard[i]);  
-    //At the end of the game, alert scores
-    
+
+
+for(let i = 0; i<26;i++){
+  console.log 
+ (`
+ PLAYER 1 Card ♠️ ♦️ ♣️ ♥️:    ${playerOneCard[i]}           
+ PLAYER 2 Card ♠️ ♦️ ♣️ ♥️:    ${playerTwoCard[i]}
+ `);
+  
+  
+let p1Card;
+ switch(playerOneCard[i]){
+   case "J": p1Card = 11;
+     break;
+   case "Q": p1Card = 12;
+     break;
+   case "K": p1Card = 13;
+     break;
+   case "A": p1Card = 14;
+     break;
+   default: p1Card = parseInt(playerOneCard[i]);
+ }
+  
+ let p2Card;
+ switch(playerTwoCard[i]){
+   case "J": p2Card = 11;
+     break;
+   case "Q": p2Card = 12;
+     break;
+   case "K": p2Card = 13;
+     break;
+   case "A": p2Card = 14;
+     break;
+   default: p2Card = parseInt(playerTwoCard[i]);
+ }
+ 
+    takeTurns(p1Card, p2Card);  
+
 };
 
-
-
-alert(`
-PLAYER 1 Score🎲:     ${scoreP1}
-
-PLAYER 2 Score🎲:     ${scoreP2}
-`);
-
-
-
-
-
-class Players(){
-    constructor(player){
-        this.player = player;
+//compare card values
+function takeTurns(p1, p2){
+    if(p1 > p2){
+        scoreP1 += 1;
+        console.log("PLAYER 1 🥇 scores a point!")
+    }else if (p1 < p2) {
+        scoreP2 += 1;
+        console.log("PLAYER 2 🥈 scores a point!")
+    }else {
+        console.log('Tied! No points awarded...');
     }
 }
 
 
+//At the end of the game, alert scores
+console.log
+(`
+PLAYER 1 Score🎲:   ${scoreP1}
+PLAYER 2 Score🎲:   ${scoreP2}
+`);
 
-let deck = new Deck();
-deck.start();
+
+// class Players(){
+//     constructor(player){
+//         this.player = player;
+//     }
+// }
+
+
+
+// let deck = new Deck();
+// deck.start();
 
 
 
