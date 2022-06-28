@@ -1,0 +1,23 @@
+{
+  "name": "wk6hw",
+  "version": "1.0.0",
+  "description": "WarCardGame",
+  "main": "WARscript.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NereidaRondon/PromineoTechWk6.git"
+  },
+  "author": "Nereida Rondon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NereidaRondon/PromineoTechWk6/issues"
+  },
+  "homepage": "https://github.com/NereidaRondon/PromineoTechWk6#readme",
+  "dependencies": {
+    "chai": "^4.3.6",
+    "mocha": "^10.0.0"
+  }
+}
