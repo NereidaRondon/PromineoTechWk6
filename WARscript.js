@@ -9,6 +9,11 @@
 
 let fullDeck = [2,3,4,5,6,7,8,9,10, 'J', 'Q', 'K', 'A',2,3,4,5,6,7,8,9,10,'J', 'Q', 'K', 'A',2,3,4,5,6,7,8,9,10,'J', 'Q', 'K', 'A',2,3,4,5,6,7,8,9,10,'J', 'Q', 'K', 'A'];
 
+let playerOneCard = [];
+let scoreP1 = 0;
+
+let playerTwoCard = [];
+let scoreP2 = 0;
 
 // class Cards{
 //     constructor(value){
@@ -18,27 +23,26 @@ let fullDeck = [2,3,4,5,6,7,8,9,10, 'J', 'Q', 'K', 'A',2,3,4,5,6,7,8,9,10,'J', '
 // }
 
 class Game{
-    constructor(cards){
-        this.cards =cards;
+    constructor(){
+        this.game = game;
     }
     
+    //start the game
     start(){
+        //intro alert
         console.log("🧨Let's go to War🧨!");
-        //shuffle cards
-        //pass out cards to players
-        //start turns function 
+        //shuffle cards array
+        //sort or pass out cards to players, push into arrays
+        //invoke takeTurns function
+        //invoke winner function
+        //score function 
     }        
 }
 
 
-console.log("🧨Let's go to War🧨!");
+//console.log("🧨Let's go to War🧨!");
 
-let playerOneCard = [];
-let scoreP1 = 0;
-
-let playerTwoCard = [];
-let scoreP2 = 0;
-  
+//create a function/class for the deck of cards shuffle and sort  
 let shuffledDeck = fullDeck.sort(()=> 0.5 - Math.random());
 
 
@@ -77,7 +81,7 @@ let p1Card;
      break;
    case "A": p1Card = 14;
      break;
-   default: p1Card = parseInt(playerOneCard[i]);
+   default: p1Card = playerOneCard[i];
  }
   
  let p2Card;
