@@ -12,8 +12,42 @@
       footer {
         font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
       }
-    </style>
-    <link rel="stylesheet" href="node_modules/mocha/mocha.css" />
+      .rectangle {
+        height: 200px;
+        width: 150px;
+        background-color: rgb(167, 164, 164);
+        border-radius: 10px;
+        border: 1px solid black;
+        justify-content: center;
+        align-items: center;
+        
+      }
+      .rect1{
+        position:relative;
+        left:300px;
+        top: 10px;
+      }
+      .rect2 {
+        position:relative;
+        left:300px;
+        top:50px;
+      }
+      p{
+        font-size: 100px;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+        justify-content: center;
+        text-align: center;
+        margin-top: 10px;
+        padding: 0;
+      }
+      footer{
+        position: relative;
+        top: 600px;
+        bottom: 1px;
+      }
+      </style>
+      <link rel="stylesheet" href="node_modules/mocha/mocha.css" />
+
   </head>
   <body>
     <!-- <div id="mocha">
@@ -25,6 +59,10 @@
     <div id="fixtures"></div> -->
 
     <img src="images/WAR.png" />
+    <h1 class></h1> 
+    <div class="rectangle rect1">&nbsp;Player 1<p id = "player1card" onclick="myFunction()"></p></div>
+    
+    <div class="rectangle rect2">&nbsp;Player 2<p id = "player2card"></p></div>
 
     <!-- <script src="node_modules/mocha/mocha.js"></script>
     <script src="node_modules/chai/chai.js"></script> -->

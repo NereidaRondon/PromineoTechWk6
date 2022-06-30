@@ -1,186 +1,155 @@
-// For the final project you will be creating an automated version of the classic card game WAR. The entire game should play out instantly without any user input. 
-// Think about how you would build this project and write your plan down. Consider classes such as Card, Deck, and Player and what fields and methods they might each have. You can implement the game however you’d like (i.e. printing to the console, using console.log, or some other way). The completed project should, when ran, do the following:
-// -Deal 26 Cards to two Players from a Deck. ✔️
-// -Iterate through the turns where each Player plays a Card ✔️
-// -The Player who played the higher card is awarded a point ✔️
-// -Ties result in zero points for either Player ✔️
-// -After all cards have been played, display the score. ✔️
-// -Write a Unit Test using Mocha and Chai for at least one of the functions you write.
-
 let fullDeck = [2,3,4,5,6,7,8,9,10, 'J', 'Q', 'K', 'A',2,3,4,5,6,7,8,9,10,'J', 'Q', 'K', 'A',2,3,4,5,6,7,8,9,10,'J', 'Q', 'K', 'A',2,3,4,5,6,7,8,9,10,'J', 'Q', 'K', 'A'];
 
-let playerOneCard = [];
-let scoreP1 = 0;
-
-let playerTwoCard = [];
-let scoreP2 = 0;
-
-// class Cards{
-//     constructor(value){
-//         this.value = value;
-
-//     }
-// }
-
-class Game{
-    constructor(){
-        this.game = game;
-    }
-    
-    //start the game
-    start(){
-        //intro alert
-        console.log("🧨Let's go to War🧨!");
-        //shuffle cards array
-        //sort or pass out cards to players, push into arrays
-        //invoke takeTurns function
-        //invoke winner function
-        //score function 
-    }        
-}
-
-
-//console.log("🧨Let's go to War🧨!");
-
-//create a function/class for the deck of cards shuffle and sort  
 let shuffledDeck = fullDeck.sort(()=> 0.5 - Math.random());
 
 
-for(let i = 0; i < 52; i++){
-    if(i%2 ===0){
-        playerOneCard.push(shuffledDeck[i]);
-    }else{
-        playerTwoCard.push(shuffledDeck[i]);
-    }
-};
-
-// console.log(`
-// PLAYER 1 🥇   ${playerOneCard}
-
-// PLAYER 2 🥈   ${playerTwoCard}
-// `);
-
-
-
-
-for(let i = 0; i<26;i++){
-  console.log 
- (`
- PLAYER 1 Card ♠️ ♦️ ♣️ ♥️:    ${playerOneCard[i]}           
- PLAYER 2 Card ♠️ ♦️ ♣️ ♥️:    ${playerTwoCard[i]}
- `);
-  
-  
-let p1Card;
- switch(playerOneCard[i]){
-   case "J": p1Card = 11;
-     break;
-   case "Q": p1Card = 12;
-     break;
-   case "K": p1Card = 13;
-     break;
-   case "A": p1Card = 14;
-     break;
-   default: p1Card = playerOneCard[i];
- }
-  
- let p2Card;
- switch(playerTwoCard[i]){
-   case "J": p2Card = 11;
-     break;
-   case "Q": p2Card = 12;
-     break;
-   case "K": p2Card = 13;
-     break;
-   case "A": p2Card = 14;
-     break;
-   default: p2Card = playerTwoCard[i];
- }
- 
- takeTurns(p1Card, p2Card);  
-
-};
-
-//compare card values
-function takeTurns(p1, p2){
-    if(p1 > p2){
-        scoreP1 += 1;
-        console.log("PLAYER 1 🥇 scores a point!")
-    }else if (p1 < p2) {
-        scoreP2 += 1;
-        console.log("PLAYER 2 🥈 scores a point!")
-    }else {
-        console.log('Tied! No points awarded...');
-    }
-}
-
-
-function winner(p1, p2){
-    if(p1 > p2){
-    return ' PLAYER 1 WINS!'
-    } else if (p1 < p2){
-    return ' PLAYER 2 WINS!'
-    } else{
-        return '   NO WINNER!'
-    };
-}    
-
-
-//At the end of the game, console.log scores
-console.log
-(`
-🔥🔥🔥  -GAME OVER-  🔥🔥🔥
-__________________________________ 
-         ${winner(scoreP1, scoreP2)}
-__________________________________                      
-     PLAYER 1 Score 🎲:   ${scoreP1}   
-                                   
-     PLAYER 2 Score 🎲:   ${scoreP2}   
-__________________________________
-
-`);
-
-
-
-
-class Players(){
-    constructor(player){
-        this.player = player;
-    }
-}
-
-
-
-let game = new Game();
-game.start();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// function doSomething(x, y) {
-//   if (typeof x != "string") {
-//     throw new Error("x must be a string");
+// class Points{
+//   constructor(p1, p2, score1, score2){
+//     this.p1Card = p1;
+//     this.p2Card = p2;
+//     this.scoreP1 = 0;
+//     this.scoreP2 = 0;
 //   }
-//   return x + y;
-// }
+  // whoScored(p1, p2){
+
+  //   if(p1 > p2){
+  //       this.scoreP1 += 1;
+  //       console.log('➕1 point for 😎PLAYER 1')
+  //   }else if (p1 < p2) {
+  //       this.scoreP2 += 1;
+  //       console.log('➕1 point for 🤓PLAYER 2')
+  //   }else {
+  //       console.log('Tied!🎀 No points awarded...');
+  //   } 
+  // }
+
+
+  let scoreP1 = 0;
+  let scoreP2 = 0;
+
+  //create a class to deal deck and draw cards  
+  class Cards{
+    constructor(p1, p2){
+      this.playerOneCard=[];
+      this.playerTwoCard=[];
+      this.p1Card = p1;
+      this.p2Card = p2;
+    }
+    
+    dealCards(){
+      for(let i = 0; i < shuffledDeck.length; i++){
+        if(i%2 ===0){
+          this.playerOneCard.push(shuffledDeck[i]);
+        }else{
+          this.playerTwoCard.push(shuffledDeck[i]);
+        }
+      };
+    };
+
+    whoScored(p1, p2){
+
+      if(p1 > p2){
+        scoreP1 += 1;
+        console.log('➕1 point for 😎PLAYER 1')
+      }else if (p1 < p2) {
+        scoreP2 += 1;
+        console.log('➕1 point for 🤓PLAYER 2')
+      }else {
+        console.log('Tied!🎀 No points awarded...');
+      } 
+    }  
+    
+    takeTurns (){
+      for(let i = 0; i<shuffledDeck.length/2;i++){
+        console.log 
+        (`
+        Turn: ${i+1}
+
+        PLAYER 1 Card ♠️ ♦️ ♣️ ♥️:    ${this.playerOneCard[i]}           
+        PLAYER 2 Card ♠️ ♦️ ♣️ ♥️:    ${this.playerTwoCard[i]}
+        `);
+        
+
+          switch(this.playerOneCard[i]){
+            case "J": this.p1Card = 11;
+            break;
+            case "Q": this.p1Card = 12;
+            break;
+            case "K": this.p1Card = 13;
+            break;
+            case "A": this.p1Card = 14;
+            break;
+            default: this.p1Card = this.playerOneCard[i];
+          }
+          
+          switch(this.playerTwoCard[i]){
+            case "J": this.p2Card = 11;
+            break;
+            case "Q": this.p2Card = 12;
+            break;
+            case "K": this.p2Card = 13;
+            break;
+            case "A": this.p2Card = 14;
+            break;
+            default: this.p2Card = this.playerTwoCard[i];
+          }
+          //call class that awards points
+          let score = new Cards(this.p1Card, this.p2Card);
+          score.whoScored();  
+          
+      };
+    };
+    
+  }
+
+    class Game {
+      //start the game
+      start(){
+        //intro console.log
+        console.log
+        (`
+                💣🔥🧨 WAR 🧨🔥💣
+
+          😎PLAYER 1  vs  🤓PLAYER 2
+
+        Player with the most points wins!
+        `);
+        //sort cards to players, push into arrays
+        let deal= new Cards();
+        deal.dealCards();
+        //put down cards AND assign points
+        deal.takeTurns();
+      } 
+      
+      winner(){
+        if(scoreP1 > scoreP2){
+          return '🏆 PLAYER 1 WINS!'
+        } else if (scoreP1 < scoreP2){
+          return '🏆 PLAYER 2 WINS!'
+        } else{
+          return 'TIED!'
+      };
+  };
+      //show points and winner
+      gameOver (){ 
+      (`       
+      🔥🔥🔥  -GAME OVER-  🔥🔥🔥
+      __________________________________     
+            PLAYER 1 Score 🎯:   ${scoreP1}   
+          
+            PLAYER 2 Score 🎯:   ${scoreP2} 
+      __________________________________
+                ${game.winner(scoreP1, scoreP2)}
+      
+      ♠️ ♦️ ♣️ ♥️ ♠️ ♦️ ♣️ ♥️ ♠️ ♦️ ♣️ ♥️ ♠️ ♦️ ♣️         
+      `);
+      }
+  };
+
+//instance of Game  
+let game = new Game();
+//starts the game (instance.method)
+game.start();
+//game.winner();
+//shows score
+game.gameOver();
