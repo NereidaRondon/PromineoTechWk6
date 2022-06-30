@@ -1,9 +1,9 @@
 var expect = chai.expect;
 
-describe("MyCardFunction", function(){
-    describe("#takeTurns", function(){
+describe("Cards", function(){
+    describe("#Cards", function(){
         it('should switch strings to numbers', function(){
-            var x = takeTurns("A");
+            var x = Cards("A");
             expect(x).to.equal(14);
         });
 
