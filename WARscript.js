@@ -1,6 +1,8 @@
 let fullDeck = [2,3,4,5,6,7,8,9,10, 'J', 'Q', 'K', 'A',2,3,4,5,6,7,8,9,10,'J', 'Q', 'K', 'A',2,3,4,5,6,7,8,9,10,'J', 'Q', 'K', 'A',2,3,4,5,6,7,8,9,10,'J', 'Q', 'K', 'A'];
 
 let shuffledDeck = fullDeck.sort(()=> 0.5 - Math.random());
+let scoreP1 = 0;
+let scoreP2 = 0;
 
 
 // class Points{
@@ -24,8 +26,6 @@ let shuffledDeck = fullDeck.sort(()=> 0.5 - Math.random());
   // }
 
 
-  let scoreP1 = 0;
-  let scoreP2 = 0;
 
   //create a class to deal deck and draw cards  
   class Cards{
@@ -47,7 +47,6 @@ let shuffledDeck = fullDeck.sort(()=> 0.5 - Math.random());
     };
 
     whoScored(p1, p2){
-
       if(p1 > p2){
         scoreP1 += 1;
         console.log('➕1 point for 😎PLAYER 1')
@@ -69,7 +68,7 @@ let shuffledDeck = fullDeck.sort(()=> 0.5 - Math.random());
         PLAYER 2 Card ♠️ ♦️ ♣️ ♥️:    ${this.playerTwoCard[i]}
         `);
         
-
+          //assigns values to string cards
           switch(this.playerOneCard[i]){
             case "J": this.p1Card = 11;
             break;
@@ -93,16 +92,22 @@ let shuffledDeck = fullDeck.sort(()=> 0.5 - Math.random());
             break;
             default: this.p2Card = this.playerTwoCard[i];
           }
-          //call class that awards points
-          let score = new Cards(this.p1Card, this.p2Card);
-          score.whoScored();  
           
+          if(this.p1Card > this.p2Card){
+              scoreP1 += 1;
+              console.log('➕1 point for 😎PLAYER 1')
+          }else if (this.p1Card < this.p2Card) {
+              scoreP2 += 1;
+              console.log('➕1 point for 🤓PLAYER 2')
+          }else {
+              console.log('Tied!🎀 No points awarded...');
+          }
       };
     };
     
   }
 
-    class Game {
+    class Game extends Cards{
       //start the game
       start(){
         //intro console.log
@@ -128,8 +133,8 @@ let shuffledDeck = fullDeck.sort(()=> 0.5 - Math.random());
           return '🏆 PLAYER 2 WINS!'
         } else{
           return 'TIED!'
-      };
-  };
+        };
+      }
       //show points and winner
       gameOver (){ 
       (`       
@@ -150,6 +155,5 @@ let shuffledDeck = fullDeck.sort(()=> 0.5 - Math.random());
 let game = new Game();
 //starts the game (instance.method)
 game.start();
-//game.winner();
 //shows score
 game.gameOver();
