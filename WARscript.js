@@ -1,21 +1,28 @@
-let fullDeck = [2,3,4,5,6,7,8,9,10, 'J', 'Q', 'K', 'A',2,3,4,5,6,7,8,9,10,'J', 'Q', 'K', 'A',2,3,4,5,6,7,8,9,10,'J', 'Q', 'K', 'A',2,3,4,5,6,7,8,9,10,'J', 'Q', 'K', 'A'];
-
 let shuffle =(arr)=>arr.sort(()=>0.5 - Math.random());
-let shuffledDeck = shuffle(fullDeck);
+
 let scoreP1 = 0;
 let scoreP2 = 0;
+let cards = [];
+//create a new deck    
+for(let i = 0;i<4;i++){
+    for (let num = 2; num < 11; num++){
+        cards.push(num);
+    }
+    cards.push("J","Q","K","A");
+}
+let shuffledDeck = shuffle(cards);
 
-  //create a class to deal deck and draw cards  
-  class Cards{
-    constructor(p1, p2){
-      this.playerOneCard=[];
-      this.playerTwoCard=[];
-      this.p1Card = p1;
-      this.p2Card = p2;
+//create a class to deal players cards deck and players draw cards  
+class Players{
+  constructor(p1, p2){
+    this.playerOneCard=[];
+    this.playerTwoCard=[];
+    this.p1Card = p1;
+    this.p2Card = p2;
     }
     
     dealCards(){
-      for(let i = 0; i < shuffledDeck.length; i++){
+      for(let i = 0; i < 52; i++){
         if(i%2 ===0){
           this.playerOneCard.push(shuffledDeck[i]);
         }else{
@@ -25,7 +32,7 @@ let scoreP2 = 0;
     };
 
     takeTurns (){
-      for(let i = 0; i<shuffledDeck.length/2;i++){
+      for(let i = 0; i<26;i++){
         console.log 
         (`
         Turn: ${i+1}
@@ -89,7 +96,7 @@ let scoreP2 = 0;
       Player with the most points wins!
         `);
         //sort cards to players, push into arrays
-        let deal= new Cards();
+        let deal= new Players();
         deal.dealCards();
         //put down cards AND assign points
         deal.takeTurns();
@@ -127,3 +134,4 @@ let game = new Game();
 game.start();
 //shows score
 game.gameOver();
+ 
