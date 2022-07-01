@@ -1,33 +1,21 @@
 var expect = chai.expect;
+const arr1 = [1, 2, 3, 14, 15, 16]
+const arr2 = [1, 2, 3, 14, 15, 16]
 
-describe("Cards", function(){
-    describe("#Cards", function(){
-        it('should switch strings to numbers', function(){
-            var x = Cards("A");
-            expect(x).to.equal(14);
+describe("CardShuffle", function(){
+    describe("#shuffle", function(){
+        it("should sort all elements in array", function(){
+            var x = shuffle(arr1);
+            expect(x).to.have.all.members(arr2);
+            //expect(x).to.eql(arr2);  //← test fails, as it should
         });
-
+        it("should throw an error if arrays have the same order", function(){
+            expect(function () {
+            shuffle(arr1).to.eql(arr2);
+            }).to.throw(Error);
+        })
     })
 });
 
-
-
-
-
-
-describe("MyFunctions", function () {
-  describe("#doSomething", function () {
-    it("should concatenate the two parameters", function () {
-      var x = doSomething("Hello", 5);
-      expect(x).to.equal("Hello5");
-    });
-
-    it("should throw an error if first parameter is not a string", function () {
-      expect(function () {
-        doSomething(5, 5);
-      }).to.throw(Error);
-    });
-  });
-});
 
 

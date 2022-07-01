@@ -1,6 +1,7 @@
 let fullDeck = [2,3,4,5,6,7,8,9,10, 'J', 'Q', 'K', 'A',2,3,4,5,6,7,8,9,10,'J', 'Q', 'K', 'A',2,3,4,5,6,7,8,9,10,'J', 'Q', 'K', 'A',2,3,4,5,6,7,8,9,10,'J', 'Q', 'K', 'A'];
 
-let shuffledDeck = fullDeck.sort(()=> 0.5 - Math.random());
+let shuffle =(arr)=>arr.sort(()=>0.5 - Math.random());
+let shuffledDeck = shuffle(fullDeck);
 let scoreP1 = 0;
 let scoreP2 = 0;
 
@@ -68,8 +69,7 @@ let scoreP2 = 0;
               console.log('🎀Tied! No points awarded...');
           }
       };
-    };
-    
+    }; 
   }
 
     class Game{
@@ -78,12 +78,15 @@ let scoreP2 = 0;
         //intro message
         console.log
         (`
-                    Let's play
-                💣🔥🧨 WAR 🧨🔥💣
+    ♣️ ♥️ ♠️ ♦️ ♣️ ♥️ ♠️ ♦️ ♣️ ♥️ ♠️ ♦️ ♣️ ♥️ ♠️ ♦️ ♣️ ♥️ ♠️ 
 
-          😎PLAYER 1  vs  🤓PLAYER 2
+                Let's play
 
-        Player with the most points wins!
+            💣🔥🧨 WAR 🧨🔥💣
+
+        😎PLAYER 1  vs  🤓PLAYER 2
+
+      Player with the most points wins!
         `);
         //sort cards to players, push into arrays
         let deal= new Cards();
@@ -106,16 +109,16 @@ let scoreP2 = 0;
         console.log
         (`       
         🔥🔥🔥  -GAME OVER-  🔥🔥🔥
-        __________________________________     
-        PLAYER 1 Score 🎯:   ${scoreP1}   
+     __________________________________     
+          PLAYER 1 Score 🎯:   ${scoreP1}   
         
-        PLAYER 2 Score 🎯:   ${scoreP2} 
-        __________________________________
+          PLAYER 2 Score 🎯:   ${scoreP2} 
+     __________________________________
+             
              ${game.winner(scoreP1, scoreP2)}
         
-        ♠️ ♦️ ♣️ ♥️ ♠️ ♦️ ♣️ ♥️ ♠️ ♦️ ♣️ ♥️ ♠️ ♦️ ♣️         
+    ♣️ ♥️ ♠️ ♦️ ♣️ ♥️ ♠️ ♦️ ♣️ ♥️ ♠️ ♦️ ♣️ ♥️ ♠️ ♦️ ♣️ ♥️ ♠️        
         `);
-        
       }
   };
 //instance of Game  
@@ -124,14 +127,3 @@ let game = new Game();
 game.start();
 //shows score
 game.gameOver();
-
-
-
-
-
-function doSomething(x, y) {
-  if (typeof x != "string") {
-    throw new Error("x must be a string");
-  }
-  return x + y;
-}
