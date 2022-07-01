@@ -29,9 +29,11 @@ class Players{
           this.playerTwoCard.push(shuffledDeck[i]);
         }
       };
+      console.log("♠️ ♦️ ♣️ ♥️ Cards have been dealt to Players ♠️ ♦️ ♣️ ♥️!")
     };
 
     takeTurns (){
+      console.log("Begin!");
       for(let i = 0; i<cards.length/2;i++){
         console.log 
         (`
