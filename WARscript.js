@@ -29,7 +29,7 @@ class Players{
           this.playerTwoCard.push(shuffledDeck[i]);
         }
       };
-      console.log("♠️ ♦️ ♣️ ♥️ Cards have been dealt to Players ♠️ ♦️ ♣️ ♥️!")
+      console.log("♠️ ♦️ ♣️ ♥️ Cards have been dealt to Players ♠️ ♦️ ♣️ ♥️")
     };
 
     takeTurns (){
@@ -130,10 +130,10 @@ class Players{
         `);
       }
   };
-//instance of Game  
+//instance of class Game  
 let game = new Game();
 //starts the game (instance.method)
 game.start();
-//shows score
+//shows score and winner
 game.gameOver();
  
