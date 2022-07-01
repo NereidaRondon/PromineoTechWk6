@@ -4,7 +4,7 @@ let scoreP1 = 0;
 let scoreP2 = 0;
 let cards = [];
 //create a new deck    
-for(let i = 0;i<4;i++){
+for(let i = 0; i < 4; i++){
     for (let num = 2; num < 11; num++){
         cards.push(num);
     }
@@ -12,7 +12,7 @@ for(let i = 0;i<4;i++){
 }
 let shuffledDeck = shuffle(cards);
 
-//create a class to deal players cards deck and players draw cards  
+//create a class to deal players cards and draw players cards  
 class Players{
   constructor(p1, p2){
     this.playerOneCard=[];
@@ -22,7 +22,7 @@ class Players{
     }
     
     dealCards(){
-      for(let i = 0; i < 52; i++){
+      for(let i = 0; i < cards.length; i++){
         if(i%2 ===0){
           this.playerOneCard.push(shuffledDeck[i]);
         }else{
@@ -32,7 +32,7 @@ class Players{
     };
 
     takeTurns (){
-      for(let i = 0; i<26;i++){
+      for(let i = 0; i<cards.length/2;i++){
         console.log 
         (`
         Turn: ${i+1}
